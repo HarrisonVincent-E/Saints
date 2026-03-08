@@ -4,6 +4,7 @@ import { NavBar } from './components/NavBar'
 import { GridComponent } from './components/GridComponent'
 import AboutSection from './components/AboutSection'
 import ConferenceThemes from './components/ConferenceThemes'
+import CollaboratorsSection from './components/CollaboratorsSection'
 import LoadingLines from './components/LoadingLines'
 import ScrollProgressBar from './components/ui/scroll-progress-bar'
 
@@ -33,6 +34,7 @@ export default function App() {
       <GridComponent />
       <AboutSection />
       <ConferenceThemes />
+      <CollaboratorsSection />
     </div>
   )
 }

@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react"
-import { X, Check, BarChart3, Globe2 } from "lucide-react"
-import { AnimatePresence, motion } from "framer-motion"
-import { MeshGradient } from "@paper-design/shaders-react"
-import { ShimmerButton } from "./ui/ShimmerButton"
+import { useState, useEffect } from "react"
+import { X, Check, ArrowRight, BarChart3, Globe2 } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { GodRays, MeshGradient } from "@paper-design/shaders-react"
 
-export default function AboutSection() {
+export default function RegistrationSection() {
   const [isExpanded, setIsExpanded] = useState(false)
   const [formStep, setFormStep] = useState("idle")
 
@@ -36,138 +35,92 @@ export default function AboutSection() {
 
   return (
     <>
-      <section className="relative w-full overflow-hidden bg-slate-950">
-        <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(to_right,#64748b_1px,transparent_1px),linear-gradient(to_bottom,#64748b_1px,transparent_1px)] bg-[size:40px_40px]" />
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute right-[-10%] top-[-10%] h-[26rem] w-[26rem] rounded-full bg-blue-500/25 blur-[120px]" />
-          <div className="absolute left-[-18%] bottom-[-18%] h-[30rem] w-[30rem] rounded-full bg-purple-500/25 blur-[140px]" />
-          <div className="absolute right-[20%] bottom-[-12%] h-[22rem] w-[22rem] rounded-full bg-orange-500/20 blur-[120px]" />
+      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-slate-950 px-4 py-16 sm:px-6 sm:py-20">
+        <div className="pointer-events-none absolute inset-0">
+          <GodRays
+            colorBack="#00000000"
+            colors={["#1d4ed840", "#3b82f640", "#22c55e40", "#6366f140"]}
+            colorBloom="#60a5fa"
+            offsetX={0.85}
+            offsetY={-1}
+            intensity={0.55}
+            spotty={0.45}
+            midSize={10}
+            midIntensity={0}
+            density={0.4}
+            bloom={0.35}
+            speed={0.5}
+            scale={1.6}
+            frame={3332042.82}
+            style={{
+              height: "100%",
+              width: "100%",
+              position: "absolute",
+              top: 0,
+              left: 0,
+            }}
+          />
         </div>
 
-        <div className="relative border-y border-slate-700/60 bg-slate-900/70 py-12 md:py-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 18 }}
+        <div className="relative z-10 flex flex-col items-center gap-6 text-center sm:gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.55, ease: "easeOut" }}
-            className="text-center text-4xl font-medium tracking-[0.25em] text-slate-100 uppercase md:text-5xl"
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center rounded-full border border-slate-700/70 bg-slate-900/60 px-3 py-1 text-sm font-medium text-slate-200 backdrop-blur-sm"
           >
-            About
+            <span className="mr-2 flex h-2 w-2 rounded-full bg-emerald-400" />
+            Registration now open for SAiNTS 2026
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="max-w-4xl text-4xl font-bold tracking-tight text-slate-50 sm:text-5xl md:text-6xl"
+          >
+            Secure your place at{" "}
+            <span className="bg-gradient-to-br from-blue-400 via-emerald-400 to-indigo-400 bg-clip-text text-transparent">
+              SAiNTS&nbsp;2026
+            </span>
           </motion.h2>
-        </div>
 
-        <div className="relative">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/10 via-slate-950/60 to-slate-950" />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-2xl px-4 text-base leading-relaxed text-slate-300 sm:text-lg md:text-xl"
+          >
+            Join global researchers and practitioners shaping sustainable futures across natural and technological sciences.
+          </motion.p>
 
-          <div className="relative mx-auto max-w-6xl px-6 py-14 md:px-10 md:py-20">
-            <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="space-y-7 text-slate-200"
-              >
-                <h3 className="text-4xl font-semibold tracking-tight text-slate-50 md:text-5xl lg:text-6xl">
-                  SAiNTS - 2026
-                </h3>
-                <p className="text-lg leading-relaxed md:text-2xl">
-                  Prioritizing sustainable research is essential to tackle global challenges like climate
-                  change and resource depletion. Fostering innovation that balances economic, social, and
-                  environmental needs is needed to bolster long-term well-being for all.
-                </p>
-                <p className="text-lg leading-relaxed md:text-2xl">
-                  In this regard, CHRIST (Deemed to be University) is happy to welcome you to the international
-                  conference on Scientific Advances In Natural and Technological Sciences (SAiNTS - 2026),
-                  providing an excellent platform for experts and researchers to share knowledge and exchange ideas.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: 0.05, ease: "easeOut" }}
-                className="relative"
-              >
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/20 via-slate-900/60 to-indigo-500/20 blur-xl opacity-80" />
-                <div className="relative h-full rounded-3xl border border-slate-700/70 bg-slate-900/80 p-6 shadow-[0_22px_60px_rgba(15,23,42,0.7)] backdrop-blur-xl md:p-7">
-                  <div className="flex flex-col items-start gap-3">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.45em] text-slate-400">
-                        SAiNTS
-                      </p>
-                      <p className="text-3xl font-semibold tracking-[0.2em] text-slate-50 md:text-4xl">
-                        2026
-                      </p>
-                    </div>
-
-                    <div className="mt-4 w-full rounded-2xl bg-gradient-to-r from-blue-600/80 via-blue-500/80 to-indigo-500/80 px-4 py-3 text-left">
-                      <p className="text-sm font-medium tracking-[0.25em] text-slate-50 md:text-base">
-                        IMPORTANT DATES
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 space-y-5 text-slate-100">
-                    <div className="flex items-baseline justify-between gap-4 border-b border-slate-700/60 pb-4">
-                      <p className="text-base font-semibold md:text-lg">
-                        Abstract Submission
-                      </p>
-                      <p className="text-base text-slate-200 md:text-lg">
-                        18 December 2025
-                      </p>
-                    </div>
-                    <div className="flex items-baseline justify-between gap-4 border-b border-slate-700/60 pb-4">
-                      <p className="text-base font-semibold md:text-lg">
-                        Final Acceptance Notification
-                      </p>
-                      <p className="text-base text-slate-200 md:text-lg">
-                        20 December 2025
-                      </p>
-                    </div>
-                    <div className="flex items-baseline justify-between gap-4 border-b border-slate-700/60 pb-4">
-                      <p className="text-base font-semibold md:text-lg">
-                        Full Manuscript Submission
-                      </p>
-                      <p className="text-base text-slate-200 md:text-lg">
-                        30 December 2025
-                      </p>
-                    </div>
-                    <p className="pt-2 text-base font-semibold text-blue-100 md:text-lg">
-                      Conference Dates: 7 - 9 January 2026
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.5, delay: 0.12 }}
-              className="mt-10 max-w-xl"
-            >
-              <motion.div
-                layoutId="registration-cta-card"
-                style={{ borderRadius: "100px" }}
-                className="relative inline-block w-full"
-              >
-                <ShimmerButton
-                  shimmerColor="#bfdbfe"
-                  shimmerSize="0.05em"
-                  shimmerDuration="3s"
-                  borderRadius="100px"
-                  background="rgb(30 64 175)"
-                  className="w-full py-4 text-xl font-medium md:text-2xl"
+          <AnimatePresence initial={false}>
+            {!isExpanded && (
+              <motion.div className="relative mt-4 inline-block">
+                <motion.div
+                  style={{ borderRadius: "100px" }}
+                  layout
+                  layoutId="registration-cta-card"
+                  className="absolute inset-0 bg-gradient-to-r from-blue-600 via-emerald-500 to-indigo-600"
+                />
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  layout={false}
                   onClick={handleExpand}
+                  className="relative flex h-14 items-center gap-2 px-8 py-3 text-lg font-medium tracking-wide text-white transition-opacity hover:opacity-90"
                 >
-                  Registration Form
-                </ShimmerButton>
+                  Open registration form
+                  <ArrowRight className="h-5 w-5" />
+                </motion.button>
               </motion.div>
-            </motion.div>
-          </div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
@@ -232,8 +185,7 @@ export default function AboutSection() {
                       <div>
                         <h3 className="text-lg font-semibold">Keynotes &amp; Tracks</h3>
                         <p className="mt-1 text-sm leading-relaxed text-blue-100/80">
-                          Explore emergent materials, sustainable technologies, and data-driven futures across curated
-                          tracks.
+                          Explore emergent materials, sustainable technologies, and data-driven futures across curated tracks.
                         </p>
                       </div>
                     </div>
@@ -396,3 +348,4 @@ export default function AboutSection() {
     </>
   )
 }
+
