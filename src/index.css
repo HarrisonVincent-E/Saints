@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @keyframes shimmer-slide {
+    to {
+      transform: translate(calc(100cqw - 100%), 0);
+    }
+  }
+
+  @keyframes spin-around {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-shimmer-slide {
+    animation: shimmer-slide var(--speed) linear infinite alternate;
+  }
+
+  .animate-spin-around {
+    animation: spin-around calc(var(--speed) * 2) linear infinite;
+  }
+}
